@@ -4,17 +4,16 @@
 
 import dotenv from "dotenv"
 import connectDB from "./db/db.js";
-import express from "express"
-const app = express();
+import app from  "./app.js";
 //for using the import statement we can say that we need to config the dotenv using config method
 dotenv.config({
-    path:'./env'
+    path:'./.env'
 })
 
 
 connectDB()
     .then(() => {
-        app.listen(process.env.PORT || 8000, () => {
+        app.listen( 8000, () => {
             console.log(`Server is running at port : ${process.env.PORT || 8000}`);
         });
     })

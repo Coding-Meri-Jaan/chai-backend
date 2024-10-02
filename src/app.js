@@ -20,5 +20,9 @@ import userRouter from './routes/user.routes.js'
 app.use("/api/v1/users", userRouter) //we used to use app.get() when we didn't use the routers at the same file and now we are exporting so we need to just use the app.use() for doing so
 
 
+app.get('/', (req, res) => {
+    res.send("GET Request Called")
+})
+
 // http://localhost:8000/users
-export {app}
+export default app

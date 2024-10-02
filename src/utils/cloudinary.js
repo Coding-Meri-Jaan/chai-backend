@@ -10,7 +10,7 @@ cloudinary.config({
 
 
 //using try catch for file upload case because it is complex task
-const uploadOnCloudinary = async (localFilePath) => {
+export const uploadOnCloudinary = async (localFilePath) => {
     try {
         if (!localFilePath) return null
         //upload the file  on cloudinary
@@ -31,9 +31,11 @@ const uploadOnCloudinary = async (localFilePath) => {
 
 
 
-cloudinary.v2.uploader.upload("https://res.cloudinary.com/demo/image/upload/getting-started/shoes.jpg",
+cloudinary.uploader.upload("https://res.cloudinary.com/demo/image/upload/getting-started/shoes.jpg",
     { public_id: "shoes" },
     function (error, result) {
-        console.log(result);
+        if (error) console.error(error);
+        else console.log(result);
     }
 );
+
